@@ -33,7 +33,7 @@ People optimize.  This is a repo for my notes and exercise of Book Numerical Opt
 
 
 $$
-\text{min}_{x\in\R^n}\space f(x)\space\space\text{subject to}\space\space
+\min_{x\in\R^n}\space f(x)\space\space\text{subject to}\space\space
         \begin{cases}
                 c_i(x)=0, & i\in\Epsilon\,,  \\
                 c_i(x)\geq0, & i\in I\,.
@@ -42,7 +42,7 @@ $$
 
 Let's take an example:
 $$
-\text{min}(x_1-2)^2+(x_2-1)^2\space\space \text{subject to}        
+\min(x_1-2)^2+(x_2-1)^2\space\space \text{subject to}        
 \begin{cases}
                 x_1^2-x_2\leq0,  \\
                 x_1+x_2\leq2.
@@ -252,4 +252,104 @@ The wisdom is to **manage the tradeoffs** between convergence rate and storage r
 
 
 
+
+
+
+# Chapter 2 Fundamentals of Unconstrained Optimization
+
+**Unconstrained Optimization**：
+
+> ​	1. variable: real number$\mathbb{R}$​ with no restrictions(infinite)
+>
+> ​	2. formula: $\text{min}_xf(x)$​
+>
+> ​	3. $x\in \mathbb{R}^n$ : is a real vector, $n\geq 1$
+>
+> ​	4. $f:\mathbb{R}^n \to \mathbb{R}$​ , is a smooth function
+>
+> ​	5. characteristic:lack of global perspective on the function(due to 1.), only some scope on $x_1,x_2,...$
+
+
+
+**Example on unconstrained optimization:**
+
+<figure><center><img src="img/image-20210806105348796.png" alt="image-20210806105348796" style="zoom:50%;" />  <figcaption>Least squares data fitting problem</figcaption></center>
+</figure>
+Taking the above problem, we can take down the process into
+
+> 1. inspect the data
+> 2. deduce the signal with possible solution
+> 3. detect exponential and oscillatory behavior
+> 4. write a formula
+> 5. $\phi(t;x)=x_1+x_2e^{-(x_3-t^2)/4}+x_5cos(x_6t)$
+> 6. $t$: times at $x$ axis, (input)
+> 7. y: output
+> 8. $x_i,i=1,2,...6$ : the parameter of the model
+> 9. therefore $x_i$ can also be written as a vector: $x=(x_1,x_2,...,x_6)^T$
+> 10. What to do? Minimize the discrepancy between $\phi(t;x)$ and $y_t$
+> 11. $r_j(x)=y_j-\phi(t_j;x),\quad j=1,2,...,m$    m is the amount of input data
+
+Written formally:
+$$
+\min_{x\in\mathbb{R}^6} f(x)=r_1^2(x)+r_2^2(x)+...+r_m^2(x)
+$$
+:star:This is so-called **non-linear least-squares problems**(非线性最小二乘问题). 
+
+Quick question why **square** the $r_i$? Because the residual can be negative.
+
+
+
+## 2.1What is a solution?
+
+**Global minimizer:**
+
+> ​	A point $x^*$ is a global minimizer if $f(x^*)\leq f(x)$ for all $x\in\mathbb{R}^n$​
+
+**Local minimizer:**
+
+> ​	A point $x^∗$ is a local minimizer if there is a neighborhood $N$ of $x^∗$ such that $f(x^∗) ≤ f(x)$for all $x ∈ N$.
+
+**Weak local minimizer:**
+
+> ​	copy definition from `local minimizer`, + when $N$​ is an open set that contains $x^*$​​ , e.g. $N=[0,2], x^*=2$​
+>
+> ​	e.g. $f(x)=2$​, where every point is weal local minimizer
+
+**Strict/Strong local minimizer:**
+
+> ​	A point $x^∗$​​ is a strict local minimizer if there is a neighborhood $N$​​ of $x^∗$​​ such that $f(x^∗) < f(x)$​​for all $x ∈ N$​ with $x\neq x^*$​​​.
+>
+> <figure><center><img src="img/image-20210806175107252.png" alt="image-20210806175107252" style="zoom:100%;" />  <figcaption>e.g. f(x)=(x-2)^2</figcaption></center>
+> </figure>
+
+**Isolated local minimizer:**
+
+> ​	This is a little bit confusing thinking together with `strict local minimizer`.
+>
+> ​	:star: The solid conclusion is **isolated local minimizer** **$\subset$​​ strict local minimizer** 
+>
+> ​	What the hell?!  OK, please recall the methodology of **infinity** and look at the following formula:
+>
+> ​	$f(x)=x^4cos(1/x)+2x^4$
+>
+> ![image-20210806180606040](img/image-20210806180606040.png)
+>
+> ![image-20210806180619899](img/image-20210806180619899.png)
+>
+> ![image-20210806180650283](img/image-20210806180650283.png)
+>
+> ​	Nothing special in the beginning, but if we zoom in around 0, we can notice that the curve **oscillates** very much!! Therefore, if we think about $x_j\to0$, there are infinite points are local minimizer whose value=0. Therefore $j\to\infin$​, there are many many **strict local minimizers** but NONE of them are **isolated local minimizer**.
+
+
+
+
+
+So in future practice, we should pay attention to those crazy function may be "trapped".
+
+<figure><center> <img src="img/image-20210806181121965.png" alt="image-20210806181121965" style="zoom:100%;" /> <figcaption>A difficult case for global minimization</figcaption></center>
+</figure>
+
+
+
+### Recognizing a local minimum
 
