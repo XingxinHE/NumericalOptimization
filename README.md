@@ -350,6 +350,106 @@ So in future practice, we should pay attention to those crazy function may be "t
 </figure>
 
 
-
 ### Recognizing a local minimum
+
+> ​	How to recognize a local minimum without examining all the points?
+>
+> > ​		:star:In particular, if $f$ is ***twice continuously differentiable***, we may be able to tell that $x^∗$ is a **local minimizer** (and possibly a strict local minimizer) by examining just the gradient $∇ f(x^∗)$ and the Hessian $∇^2 f(x^∗)$.
+
+
+
+In the following, few theorem will be used and introduced multiple times.
+
+
+
+#### Theorem 2.1 (Taylor's Theorem)
+
+> ​	**Prerequisites**: $f :\mathbb{R}^n → \mathbb{R}$ is continuously differentiable and that $p ∈ \mathbb{R}^n$     (***first continuously differentiable***)
+>
+> ​	then we have:
+
+$$
+f(x + p) = f(x) +∇ f(x + tp)^T p,
+$$
+
+> ​	for some $t\in (0,1)$, if $f$​​ is  ***twice continuously differentiable***, 
+>
+> ​	then we have:
+
+$$
+∇ f(x + p) =∇ f(x) +\int^{1}_{0}∇^2 f(x + tp)pdt\\
+f(x + p) = f(x) +∇ f(x)^T p + \frac{1}{2} p^T∇^2 f(x + tp)p
+$$
+
+
+
+#### Theorem 2.2 (First-Order Necessary Conditions)
+
+> ​	**Prerequisites**: If $x^∗$ is a **local minimizer** and $f$ is **continuously differentiable** in an open neighborhood of $x^∗$, 
+>
+> ​	then we have: 
+
+$$
+∇ f(x^∗) = 0
+$$
+
+> ​	To see it geometrically:
+
+<img src="img/image-20210810140645103.png" alt="image-20210810140645103" style="zoom:67%;" />
+
+
+
+> ​	Fun fact: the point $x^*$ are also called ***stationary point***.
+
+// TODO Explain and proof 
+
+
+
+#### Theorem 2.3 (Second-Order Necessary Conditions)
+
+> ​	**Prerequisites**: $x^∗$ is a **local minimizer** of $f$ and **$∇^2 f$ exists** and is **continuous** in an open neighborhood of $x^*$​,
+>
+> ​	then we have:
+
+$$
+∇ f(x^∗) = 0 \text{ and }∇^2 f(x^∗) \text{ is positive semidefinite}
+$$
+
+// TODO Explain and proof, and add texts of `positive semidefinite`.
+
+
+
+#### Theorem 2.4 (Second-Order Sufficient Conditions)
+
+> ​	**Prerequisites**: $∇^2 f$ is **continuous** in an open neighborhood of $x^∗$ and that $∇ f(x^∗)= 0$ and $∇^2 f(x^∗)$​ is **positive definite**,
+>
+> ​	then we have:
+
+$$
+x^∗ \text{ is a strict local minimizer of }f
+$$
+
+// TODO add example and proof
+
+
+
+#### Theorem 2.5
+
+> ​	**Prerequisites**: When $f$ is **convex**, then we have:
+
+$$
+\text{any local minimizer }x^∗ \text{ is a global minimizer of }f
+$$
+
+> ​	**Prerequisites**: if in addition $f$ is **differentiable**, then we have:
+
+$$
+\text{any stationary point } x^∗\text{ is a global minimizer of }f
+$$
+
+
+
+#### Conclusion of theorem 2.1 to 2.5
+
+These results, which **are based on elementary calculus**, provide **the foundations for unconstrained optimization algorithms**. In one way or another, **all algorithms seek a point where** $∇ f(·)$ vanishes.
 
