@@ -453,3 +453,25 @@ $$
 
 These results, which **are based on elementary calculus**, provide **the foundations for unconstrained optimization algorithms**. In one way or another, **all algorithms seek a point where** $∇ f(·)$ vanishes.
 
+
+
+### Nonsmooth Problem
+
+<img src="img/image-20210811091333091.png" alt="image-20210811091333091" style="zoom:67%;" />
+
+> ​	What it is?
+
+Geometrically, the nonsmooth function consists of a few smooth pieces, with **discontinuities between the pieces**.
+
+> ​	So what we gonna do?
+
+It may be possible to find the minimizer by **minimizing each smooth piece individually**, a.k.a. examing the **subgradient** and **generalized gradient**.
+
+(a side note, this book will not cover non-smooth problem.)
+
+
+
+## 2.2Overview of algorithm
+
+All algorithms for unconstrained minimization require the user to supply a starting point, which we usually denote by $x_0$
+
