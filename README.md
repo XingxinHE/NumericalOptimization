@@ -455,7 +455,7 @@ These results, which **are based on elementary calculus**, provide **the foundat
 
 
 
-### Nonsmooth Problem
+### Non-smooth Problem
 
 <img src="img/image-20210811091333091.png" alt="image-20210811091333091" style="zoom:67%;" />
 
