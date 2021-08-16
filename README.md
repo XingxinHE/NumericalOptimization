@@ -27,17 +27,19 @@ People optimize.  This is a repo for my notes and exercise of Book Numerical Opt
 
 :star:(mathematical speaking) Optimization is the minimization / maximization of a function subject to constraints on its variables.
 
-- $x$ - variable, unknown, parameters
-- $f$ - objective function(scalar function) of $x$ 
-- $c_i$ - constraint function(scalar function) of $x$ where must be satisfied
+- $x$​ - variable, unknown, parameters(vector向量)
+- $f$ - objective function目标函数(scalar function) of $x$ 
+- $c_i$ - constraint function约束函数(scalar function) of $x$​​ where must be satisfied
+- $\Omega$ - feasible domain可行域
 
 
 $$
 \min_{x\in\R^n}\space f(x)\space\space\text{subject to}\space\space
         \begin{cases}
-                c_i(x)=0, & i\in\Epsilon\,,  \\
-                c_i(x)\geq0, & i\in I\,.
-        \end{cases}
+                c_i(x)=0, & i\in\Epsilon  \text{, Equality等式}\\
+                c_i(x)\geq0, & i\in I\text{, Inequality不等式}
+        \end{cases}\\
+\Omega = \{x: C_i(x)=0, i\in\Epsilon,C_i(x)\geq0,i\in\ I  \}
 $$
 
 Let's take an example:
@@ -48,7 +50,7 @@ $$
                 x_1+x_2\leq2.
         \end{cases}
 $$
-$(x_1-2)^2+(x_2-1)^2$ is a bunch of circle
+$(x_1-2)^2+(x_2-1)^2$​ is a bunch of contour(等值线)
 
 $x_1^2-x_2\leq0$ is parabolic curve
 
@@ -108,7 +110,7 @@ $$
 
 ## 1.3 Continuous Versus Discrete Optimization
 
-Continuous optimization is easier than discrete optimization.
+:pushpin: Difficulty: continuous optimization `<` discrete optimization.
 
 **continuous optimization**:
 
@@ -128,6 +130,8 @@ $x$ is finite, the output may be changed significantly as we vary $x$
 
 ## 1.4 Constrained and Unconstrained Optimization Problems
 
+:pushpin: Difficulty: unconstrained optimization无约束优化 `<` constrained optimization约束优化
+
 **Unconstrained optimization**
 
 > e.g. $E = I = \empty$
@@ -139,6 +143,8 @@ $x$ is finite, the output may be changed significantly as we vary $x$
 
 
 ## 1.5 Global and Local Optimization
+
+:pushpin: Difficulty: local optimization `<` global optimization
 
 In linear programming / convex programming:
 
