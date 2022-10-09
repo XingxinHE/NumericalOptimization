@@ -1,46 +1,5 @@
 # Chapter 2 Fundamentals of Unconstrained Optimization
 
-**Unconstrained Optimization**：
-
-> ​	1. variable: real number$\mathbb{R}$​ with no restrictions(infinite)
->
-> ​	2. formula: $\text{min}_xf(x)$​
->
-> ​	3. $x\in \mathbb{R}^n$ : is a real vector, $n\geq 1$
->
-> ​	4. $f:\mathbb{R}^n \to \mathbb{R}$​ , is a smooth function
->
-> ​	5. characteristic:lack of global perspective on the function(due to 1.), only some scope on $x_1,x_2,...$
-
-
-
-**Example on unconstrained optimization:**
-
-<figure><center><img src="img/image-20210806105348796.png" alt="image-20210806105348796" style="zoom:50%;" />  <figcaption>Least squares data fitting problem</figcaption></center>
-</figure>
-Taking the above problem, we can take down the process into
-
-> 1. inspect the data
-> 2. deduce the signal with possible solution
-> 3. detect exponential and oscillatory behavior
-> 4. write a formula
-> 5. $\phi(t;x)=x_1+x_2e^{-(x_3-t^2)/4}+x_5cos(x_6t)$
-> 6. $t$: times at $x$ axis, (input)
-> 7. y: output
-> 8. $x_i,i=1,2,...6$ : the parameter of the model
-> 9. therefore $x_i$ can also be written as a vector: $x=(x_1,x_2,...,x_6)^T$
-> 10. What to do? Minimize the discrepancy between $\phi(t;x)$ and $y_t$
-> 11. $r_j(x)=y_j-\phi(t_j;x),\quad j=1,2,...,m$    m is the amount of input data
-
-Written formally:
-$$
-\min_{x\in\mathbb{R}^6} f(x)=r_1^2(x)+r_2^2(x)+...+r_m^2(x)
-$$
-:star:This is so-called **non-linear least-squares problems**(非线性最小二乘问题). 
-
-Quick question why **square** the $r_i$? Because the residual can be negative.
-
-
 
 ## 2.1What is a solution?
 
