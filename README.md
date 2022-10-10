@@ -1,4 +1,11 @@
+# Notification
+
+Hi there, thanks for exploring this repository. It has currently been archived. Please refer to [here](https://xingxinhe.github.io/Hex/#/page/6342d7cc-3dd7-4710-b9b7-0a91e2663bbb).
+
+
+
 # Numerical Optimization
+
 People optimize.  This is a repo for my notes and exercise of Book Numerical Optimization by J. Nocedal, S.J. Wright
 
 
